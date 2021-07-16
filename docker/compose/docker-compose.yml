@@ -8,6 +8,8 @@ services:
             - "127.0.0.1:9200:9200"
         networks:
             main:
+                aliases:
+                    - elastic.docker
 
     mongo:
         image: mongo:3.2
@@ -141,7 +143,7 @@ services:
             # ----- Indexing engine  -------
             - BAE_LP_INDEX_ENGINE=elasticsearch   # Indexig engine: elasticsearch or local
             - BAE_LP_INDEX_URL=elasticsearch:9200  # URL of elasticsearch
-            - BAE_LP_INDEX_API_VERSION=7  # API version of elasticsearch
+            - BAE_LP_INDEX_API_VERSION=7.1  # API version of elasticsearch
 
             # ----- APIs Configuration -----
             # If provided, it supports configuring the contection to the different APIs managed by the logic proxy, by default
